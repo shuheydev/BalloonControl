@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:my="clr-namespace:BalloonControl"
+             mc:Ignorable="d"
+             x:Class="BalloonControl.Balloon">
+
+    <Grid>
+        <my:BalloonMouth x:Name="balloonMouth"/>
+        <BoxView x:Name="boxView"
+                CornerRadius="10"
+                Margin="20,10"
+                HorizontalOptions="FillAndExpand"/>
+        <Label x:Name="label"
+                   Margin="30,15"
+                   LineBreakMode="CharacterWrap"
+                   VerticalOptions="FillAndExpand"
+                   VerticalTextAlignment="Center"/>
+    </Grid>
+
+</ContentView>
