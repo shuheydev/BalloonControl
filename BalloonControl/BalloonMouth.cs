@@ -50,18 +50,6 @@ namespace BalloonControl
 
             canvas.Clear();
 
-            var yOffset = 0;
-            var xOffset = 0;
-            switch (Device.RuntimePlatform)
-            {
-                case Device.iOS:
-                    break;
-                case Device.Android:
-                    break;
-                case Device.UWP:
-                    break;
-            }
-
             SKPath path = new SKPath();
             switch (this.MouthDirection)
             {
