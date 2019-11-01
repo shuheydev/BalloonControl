@@ -50,6 +50,18 @@ namespace BalloonControl
 
             canvas.Clear();
 
+            var yOffset = 0;
+            var xOffset = 0;
+            switch (Device.RuntimePlatform)
+            {
+                case Device.iOS:
+                    break;
+                case Device.Android:
+                    break;
+                case Device.UWP:
+                    break;
+            }
+
             SKPath path = new SKPath();
             switch (this.MouthDirection)
             {
@@ -57,10 +69,28 @@ namespace BalloonControl
                     {
                         #region From Left
 
-                        path.MoveTo(0, 50);
-                        path.LineTo(100, 50);
-                        path.LineTo(100, 135);
-                        path.Close();
+                        switch (Device.RuntimePlatform)
+                        {
+                            case Device.iOS:
+                                path.MoveTo(0, 50);
+                                path.LineTo(100, 50);
+                                path.LineTo(100, 135);
+                                path.Close();
+                                break;
+                            case Device.Android:
+                                path.MoveTo(0, 50);
+                                path.LineTo(100, 50);
+                                path.LineTo(100, 135);
+                                path.Close();
+                                break;
+                            case Device.UWP:
+                                path.MoveTo(0, 25);
+                                path.LineTo(50, 25);
+                                path.LineTo(50,55);
+                                path.Close();
+                                break;
+                        }
+
                         #endregion
 
                         break;
@@ -68,10 +98,29 @@ namespace BalloonControl
                 case MouthDirection.Right:
                     {
                         #region From Right
-                        path.MoveTo(info.Width, 50);
-                        path.LineTo(info.Width - 100, 50);
-                        path.LineTo(info.Width - 100, 135);
-                        path.Close();
+
+                        switch (Device.RuntimePlatform)
+                        {
+                            case Device.iOS:
+                                path.MoveTo(info.Width, 50);
+                                path.LineTo(info.Width-100, 50);
+                                path.LineTo(info.Width-100, 135);
+                                path.Close();
+                                break;
+                            case Device.Android:
+                                path.MoveTo(info.Width, 50);
+                                path.LineTo(info.Width - 100, 50);
+                                path.LineTo(info.Width - 100, 135);
+                                path.Close();
+                                break;
+                            case Device.UWP:
+                                path.MoveTo(info.Width, 25);
+                                path.LineTo(info.Width-50, 25);
+                                path.LineTo(info.Width-50, 55);
+                                path.Close();
+                                break;
+                        }
+
                         #endregion
 
                         break;
