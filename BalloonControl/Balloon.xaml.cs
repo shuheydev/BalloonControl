@@ -18,9 +18,9 @@ namespace BalloonControl
                 declaringType: typeof(Balloon),
                 defaultValue: "",
                 defaultBindingMode: BindingMode.TwoWay,
-                propertyChanged: TitlePropertyChanged
+                propertyChanged: TextPropertyChanged
             );
-        private static void TitlePropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        private static void TextPropertyChanged(BindableObject bindable, object oldValue, object newValue)
         {
             var control = (Balloon)bindable;
             control.label.Text = newValue.ToString();
@@ -42,21 +42,21 @@ namespace BalloonControl
             control.balloonMouth.InvalidateSurface();//再描画
         }
 
-        public Color ForegroundColor { get; set; }
-        public static readonly BindableProperty ForegroundColorProperty = BindableProperty.Create(
-                propertyName: nameof(ForegroundColor),
+        public Color BalloonColor { get; set; }
+        public static readonly BindableProperty BalloonColorProperty = BindableProperty.Create(
+                propertyName: nameof(BalloonColor),
                 returnType: typeof(Color),
                 declaringType: typeof(Balloon),
                 defaultValue: null,
                 defaultBindingMode: BindingMode.TwoWay,
-                propertyChanged: ForegroundColorPropertyChanged
+                propertyChanged: BalloonColorPropertyChanged
             );
-        private static void ForegroundColorPropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        private static void BalloonColorPropertyChanged(BindableObject bindable, object oldValue, object newValue)
         {
             var control = (Balloon)bindable;
             var color = (Color)newValue;
-            control.boxView.BackgroundColor = color;
-            control.balloonMouth.ForegroundColor = color;
+            control.frame.BackgroundColor = color;
+            control.balloonMouth.MouthColor = color;
             control.balloonMouth.InvalidateSurface();//再描画
         }
 

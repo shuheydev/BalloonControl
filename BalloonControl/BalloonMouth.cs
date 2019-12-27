@@ -28,20 +28,6 @@ namespace BalloonControl
             control.MouthDirection = (MouthDirection)newValue;
         }
 
-        public Color ForegroundColor { get; set; }
-        public static readonly BindableProperty ForegroundColorProperty = BindableProperty.Create(
-                propertyName: "ForegroundColor",
-                returnType: typeof(Color),
-                declaringType: typeof(Balloon),
-                defaultValue: null,
-                defaultBindingMode: BindingMode.TwoWay,
-                propertyChanged: ForegroundColorPropertyChanged
-            );
-        private static void ForegroundColorPropertyChanged(BindableObject bindable, object oldValue, object newValue)
-        {
-            var control = (Balloon)bindable;
-            control.ForegroundColor = (Color)newValue;
-        }
         /// <summary>
         /// 吹き出しの口の色
         /// </summary>
@@ -131,7 +117,7 @@ namespace BalloonControl
             SKPaint fillPaint = new SKPaint
             {
                 Style = SKPaintStyle.Fill,
-                Color = SKColor.Parse(this.ForegroundColor.ToHex())
+                Color = SKColor.Parse(this.MouthColor.ToHex())
             };
 
             //ここで描画
