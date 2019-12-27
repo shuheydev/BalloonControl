@@ -76,6 +76,46 @@ namespace BalloonControl
             control.label.TextColor = color;
         }
 
+        public int CornerRadius { get; set; }
+        public static readonly BindableProperty CornerRadiusProperty = BindableProperty.Create(
+                propertyName: nameof(CornerRadius),
+                returnType: typeof(int),
+                declaringType: typeof(int),
+                defaultValue: 0,
+                defaultBindingMode: BindingMode.TwoWay,
+                propertyChanged: CornerRadiusPropertyChanged
+            );
+        private static bool CornerRadiusValidate(BindableObject bindable, object value)
+        {
+            var inputValue = (int)value;
+            if (inputValue < 0 || inputValue > 10)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private static void CornerRadiusPropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            var control = (Balloon)bindable;
+            var cornerRadius = (int)newValue;
+
+            //Range:0~20
+            if(cornerRadius<0)
+            {
+                cornerRadius = 0;
+            }
+            if(cornerRadius>20)
+            {
+                cornerRadius = 20;
+            }
+
+            control.frame.CornerRadius=cornerRadius;
+        }
+
         //public double FontSize { get; set; }
         //public static readonly BindableProperty FontSizeProperty = BindableProperty.Create(
         //        propertyName: nameof(FontSize),
