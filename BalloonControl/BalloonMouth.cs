@@ -10,6 +10,9 @@ namespace BalloonControl
     {
         #region Properties
 
+        /// <summary>
+        /// 吹き出しの口の向き
+        /// </summary>
         public MouthDirection MouthDirection { get; set; }
         public static readonly BindableProperty MouthDirectionProperty = BindableProperty.Create(
                 propertyName: "MouthDirection",
@@ -39,9 +42,17 @@ namespace BalloonControl
             var control = (Balloon)bindable;
             control.ForegroundColor = (Color)newValue;
         }
+        /// <summary>
+        /// 吹き出しの口の色
+        /// </summary>
+        public Color MouthColor { get; set; }
 
         #endregion
 
+        /// <summary>
+        /// 吹き出しの口の描画
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnPaintSurface(SKPaintSurfaceEventArgs e)
         {
             SKImageInfo info = e.Info;
@@ -51,6 +62,7 @@ namespace BalloonControl
             canvas.Clear();
 
             SKPath path = new SKPath();
+            //吹き出しの口の向きに応じて
             switch (this.MouthDirection)
             {
                 case MouthDirection.Left:
@@ -115,12 +127,14 @@ namespace BalloonControl
                     }
             }
 
+            //色
             SKPaint fillPaint = new SKPaint
             {
                 Style = SKPaintStyle.Fill,
                 Color = SKColor.Parse(this.ForegroundColor.ToHex())
             };
 
+            //ここで描画
             canvas.DrawPath(path, fillPaint);
         }
     }
