@@ -7,13 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BalloonControl", "BalloonCo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample", "Sample", "{B6DE7DB1-F867-4290-AF41-82953F4FE4F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatLikeSmaple.UWP", "ChatLikeSmaple\ChatLikeSmaple.UWP\ChatLikeSmaple.UWP.csproj", "{6B34FD21-1D4E-4769-B4D3-62CE101E1247}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatLikeSample.UWP", "chatlikesample\ChatLikeSample.UWP\ChatLikeSample.UWP.csproj", "{6B34FD21-1D4E-4769-B4D3-62CE101E1247}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatLikeSmaple.Android", "ChatLikeSmaple\ChatLikeSmaple.Android\ChatLikeSmaple.Android.csproj", "{ADDD949C-5418-4B70-A928-14D0E5029CE8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatLikeSample.Android", "chatlikesample\ChatLikeSample.Android\ChatLikeSample.Android.csproj", "{ADDD949C-5418-4B70-A928-14D0E5029CE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatLikeSmaple.iOS", "ChatLikeSmaple\ChatLikeSmaple.iOS\ChatLikeSmaple.iOS.csproj", "{66E868F9-DAC0-4818-B218-1A89B4F19EDE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatLikeSample.iOS", "chatlikesample\ChatLikeSample.iOS\ChatLikeSample.iOS.csproj", "{66E868F9-DAC0-4818-B218-1A89B4F19EDE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatLikeSmaple", "ChatLikeSmaple\ChatLikeSmaple\ChatLikeSmaple.csproj", "{A609A2FC-290C-4DEF-B397-094FEF98E640}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatLikeSample", "chatlikesample\ChatLikeSample\ChatLikeSample.csproj", "{A609A2FC-290C-4DEF-B397-094FEF98E640}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
