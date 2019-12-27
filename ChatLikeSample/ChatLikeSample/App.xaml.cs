@@ -2,7 +2,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace ChatLikeSmaple
+namespace chatlikesample
 {
     public partial class App : Application
     {

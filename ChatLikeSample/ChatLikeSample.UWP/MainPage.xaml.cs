@@ -13,7 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace ChatLikeSmaple.UWP
+namespace chatlikesample.UWP
 {
     public sealed partial class MainPage
     {
@@ -21,7 +21,7 @@ namespace ChatLikeSmaple.UWP
         {
             this.InitializeComponent();
 
-            LoadApplication(new ChatLikeSmaple.App());
+            LoadApplication(new chatlikesample.App());
         }
     }
 }

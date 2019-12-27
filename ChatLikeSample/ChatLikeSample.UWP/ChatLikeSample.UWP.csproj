@@ -7,8 +7,8 @@
     <ProjectGuid>{6B34FD21-1D4E-4769-B4D3-62CE101E1247}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ChatLikeSmaple.UWP</RootNamespace>
-    <AssemblyName>ChatLikeSmaple.UWP</AssemblyName>
+    <RootNamespace>chatlikesample.UWP</RootNamespace>
+    <AssemblyName>chatlikesample.UWP</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.18362.0</TargetPlatformVersion>
@@ -144,13 +144,13 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="4.3.0.819712-pre2" />
-    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.1.9"/>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.1.9" />
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ChatLikeSmaple\ChatLikeSmaple.csproj">
-      <Project>{08F025D3-E92D-4C3A-B022-B1E5AAB87266}</Project>
-      <Name>ChatLikeSmaple</Name>
+    <ProjectReference Include="..\chatlikesample\ChatLikeSample.csproj">
+      <Project>{A609A2FC-290C-4DEF-B397-094FEF98E640}</Project>
+      <Name>ChatLikeSample</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

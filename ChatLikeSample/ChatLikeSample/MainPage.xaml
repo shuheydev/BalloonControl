@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="chatlikesample.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:balloon="clr-namespace:BalloonControl;assembly=BalloonControl"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackLayout>
+        <ListView ItemsSource="{Binding Path=Messages}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <balloon:Balloon
+                            BalloonColor="{Binding Path=BalloonColor}"
+                            CornerRadius="40"
+                            MouthDirection="{Binding Path=Direction}"
+                            Text="{Binding Path=Text}"
+                            TextColor="{Binding Path=TextColor}" />
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Clicked="Button_Clicked" Text="Send" />
+        <Button Clicked="Button_Clicked_1" Text="Change Mouth Direction" />
+    </StackLayout>
+
+</ContentPage>

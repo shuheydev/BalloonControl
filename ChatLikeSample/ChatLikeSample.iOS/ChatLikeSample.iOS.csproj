@@ -9,9 +9,9 @@
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TemplateGuid>{6143fdea-f3c2-4a09-aafa-6e230626515e}</TemplateGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ChatLikeSmaple.iOS</RootNamespace>
+    <RootNamespace>chatlikesample.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>ChatLikeSmaple.iOS</AssemblyName>
+    <AssemblyName>chatlikesample.iOS</AssemblyName>
     <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
   </PropertyGroup>
@@ -125,9 +125,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\ChatLikeSmaple\ChatLikeSmaple.csproj">
-      <Project>{08F025D3-E92D-4C3A-B022-B1E5AAB87266}</Project>
-      <Name>ChatLikeSmaple</Name>
+    <ProjectReference Include="..\chatlikesample\ChatLikeSample.csproj">
+      <Project>{A609A2FC-290C-4DEF-B397-094FEF98E640}</Project>
+      <Name>ChatLikeSample</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

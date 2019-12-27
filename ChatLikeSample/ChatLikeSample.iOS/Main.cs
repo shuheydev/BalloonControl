@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace ChatLikeSmaple.iOS
+namespace chatlikesample.iOS
 {
     public class Application
     {
