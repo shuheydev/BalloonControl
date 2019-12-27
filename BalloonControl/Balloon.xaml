@@ -1,23 +1,27 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:my="clr-namespace:BalloonControl"
-             mc:Ignorable="d"
-             x:Class="BalloonControl.Balloon">
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="BalloonControl.Balloon"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:local="clr-namespace:BalloonControl"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
 
     <Grid>
-        <my:BalloonMouth x:Name="balloonMouth"/>
-        <BoxView x:Name="boxView"
-                CornerRadius="10"
-                Margin="20,10"
-                HorizontalOptions="FillAndExpand"/>
-        <Label x:Name="label"
-                   Margin="30,15"
-                   LineBreakMode="CharacterWrap"
-                   VerticalOptions="FillAndExpand"
-                   VerticalTextAlignment="Center"/>
+        <!--  吹き出しの口  -->
+        <local:BalloonMouth x:Name="balloonMouth" />
+        <!--  吹き出し本体  -->
+        <Frame
+            x:Name="frame"
+            Margin="20,10"
+            HorizontalOptions="FillAndExpand">
+            <Label
+                x:Name="label"
+                Margin="30,15"
+                LineBreakMode="CharacterWrap"
+                VerticalOptions="FillAndExpand"
+                VerticalTextAlignment="Center" />
+        </Frame>
     </Grid>
-
 </ContentView>
