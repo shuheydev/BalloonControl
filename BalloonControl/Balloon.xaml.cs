@@ -116,20 +116,6 @@ namespace BalloonControl
             control.frame.CornerRadius=cornerRadius;
         }
 
-        //public double FontSize { get; set; }
-        //public static readonly BindableProperty FontSizeProperty = BindableProperty.Create(
-        //        propertyName: nameof(FontSize),
-        //        returnType: typeof(double),
-        //        declaringType: typeof(Balloon),
-        //        defaultBindingMode: BindingMode.TwoWay,
-        //        propertyChanged: FontSizePropertyChanged
-        //    );
-        //private static void FontSizePropertyChanged(BindableObject bindable, object oldValue, object newValue)
-        //{
-        //    var control = (Balloon)bindable;
-        //    var fontSize = (double)newValue;
-        //    control.label.FontSize = fontSize;
-        //}
         public new Thickness Padding { get; set; }
         public new static readonly BindableProperty PaddingProperty = BindableProperty.Create(
             propertyName: nameof(Padding),
@@ -147,6 +133,21 @@ namespace BalloonControl
             control.balloonBody.Padding = padding;
         }
 
+        public double FontSize { get; set; }
+        public static readonly BindableProperty FontSizeProperty = BindableProperty.Create(
+                propertyName: nameof(FontSize),
+                returnType: typeof(double),
+                declaringType: typeof(Balloon),
+                defaultValue:(double)10,
+                defaultBindingMode: BindingMode.TwoWay,
+                propertyChanged: FontSizePropertyChanged
+            );
+        private static void FontSizePropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            var control = (Balloon)bindable;
+            var fontSize = (double)newValue;    
+            control.label.FontSize = fontSize;
+        }
 
         #endregion
 
