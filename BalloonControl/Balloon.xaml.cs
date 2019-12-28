@@ -130,6 +130,22 @@ namespace BalloonControl
         //    var fontSize = (double)newValue;
         //    control.label.FontSize = fontSize;
         //}
+        public new Thickness Padding { get; set; }
+        public new static readonly BindableProperty PaddingProperty = BindableProperty.Create(
+            propertyName: nameof(Padding),
+            returnType: typeof(Thickness),
+            declaringType: typeof(Balloon),
+            defaultValue: new Thickness(10),
+            defaultBindingMode: BindingMode.TwoWay,
+            propertyChanged: PaddingPropertyChanged
+            );
+        private static void PaddingPropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            var control = (Balloon)bindable;
+            var padding = (Thickness)newValue;
+
+            control.balloonBody.Padding = padding;
+        }
 
 
         #endregion
