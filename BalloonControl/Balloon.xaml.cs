@@ -55,7 +55,7 @@ namespace BalloonControl
         {
             var control = (Balloon)bindable;
             var color = (Color)newValue;
-            control.frame.BackgroundColor = color;
+            control.balloonBody.BackgroundColor = color;
             control.balloonMouth.MouthColor = color;
             control.balloonMouth.InvalidateSurface();//再描画
         }

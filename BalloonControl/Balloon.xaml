@@ -13,7 +13,6 @@
         <local:BalloonMouth x:Name="balloonMouth" />
         <!--  吹き出し本体  -->
         <Frame
-            x:Name="frame"
             Margin="20,10"
             HorizontalOptions="FillAndExpand">
             <Label
