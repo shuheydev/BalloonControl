@@ -3,9 +3,10 @@
 吹き出し型のコントロールです.
 中にテキストを表示します.
 
-<image src='https://user-images.githubusercontent.com/43431002/71499873-da92f380-28a5-11ea-892b-36bcc62f32b1.png' width=350/>
+<image src='https://user-images.githubusercontent.com/43431002/71541037-40f73f00-2996-11ea-826d-c25582cfed15.png' width=350/>
 
 iOSでは動作,見た目の確認をしていません.
+Android,UWPで確認しました.
 
 ## プロパティ
 ### Text
@@ -18,3 +19,12 @@ iOSでは動作,見た目の確認をしていません.
 吹き出しの口の方向(Right,Left)
 ### TextColor
 文字色.
+### FontSize
+フォントサイズ.
+double型での指定のみ
+
+.NamedSize列挙型は使えない.どうやったらいいんだ?
+
+### Padding
+吹き出しの中の余白.
+
