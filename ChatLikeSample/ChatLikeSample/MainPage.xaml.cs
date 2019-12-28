@@ -23,11 +23,12 @@ namespace chatlikesample
             InitializeComponent();
             BindingContext = this;
 
-            Messages.Add(new Message { BalloonColor = Color.Bisque, Text = "Hello", TextColor = Color.Red, Direction = MouthDirection.Left });
-            Messages.Add(new Message { BalloonColor = Color.GreenYellow, Text = "Hi", TextColor = Color.Blue, Direction = MouthDirection.Right });
-            Messages.Add(new Message { BalloonColor = Color.GreenYellow, Text = "How are you", TextColor = Color.Blue, Direction = MouthDirection.Right });
-            Messages.Add(new Message { BalloonColor = Color.Bisque, Text = "I'm fine thank you.", TextColor = Color.Red, Direction = MouthDirection.Left });
-            Messages.Add(new Message { BalloonColor = Color.GreenYellow, Text = "bye", TextColor = Color.Red, Direction = MouthDirection.Right });
+            Messages.Add(new Message { BalloonColor = Color.Bisque, Text = "Hello", TextColor = Color.Red, Direction = MouthDirection.Left, AvatarUrl = "avatar_men_1", SendTime = DateTime.Now.ToShortTimeString() });
+            Messages.Add(new Message { BalloonColor = Color.GreenYellow, Text = "Hi", TextColor = Color.Blue, Direction = MouthDirection.Right, AvatarUrl = "avatar_men_2", SendTime = DateTime.Now.ToShortTimeString() });
+            Messages.Add(new Message { BalloonColor = Color.GreenYellow, Text = "How are you", TextColor = Color.Blue, Direction = MouthDirection.Right, AvatarUrl = "avatar_men_2", SendTime = DateTime.Now.ToShortTimeString() });
+            Messages.Add(new Message { BalloonColor = Color.Bisque, Text = "I'm fine thank you.", TextColor = Color.Red, Direction = MouthDirection.Left, AvatarUrl = "avatar_men_1", SendTime = DateTime.Now.ToShortTimeString() });
+            Messages.Add(new Message { BalloonColor = Color.GreenYellow, Text = "bye", TextColor = Color.Blue, Direction = MouthDirection.Right, AvatarUrl = "avatar_men_2", SendTime = DateTime.Now.ToShortTimeString() });
+            Messages.Add(new Message { BalloonColor = Color.GreenYellow, Text = @"あkldjふぁsdjふぁをえいjふぁw;おいえfjklsdjfぁksjがをいgじぇおいjslkfjsdklfじゃうぃおえfjわえおいfじぇlfjをあいえjふぉいえjf;ぇfjklsdjfldkfじゃ;lsdkjf;をいえfじゃを;jfldkじゃおぎじぇいおじゃおいえjぇfjksldkjふぁをいえjf", TextColor = Color.Blue, Direction = MouthDirection.Right, AvatarUrl = "avatar_men_1", SendTime = DateTime.Now.ToShortTimeString() });
         }
 
         private void Button_Clicked(object sender, EventArgs e)
@@ -76,11 +77,35 @@ namespace chatlikesample
             }
         }
 
+        public string AvatarUrl { get; set; }
+        public string SendTime { get; set; }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName]string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+    }
+
+
+    public class MyDataTemplateSelector : DataTemplateSelector
+    {
+        public DataTemplate LeftTemplate { get; set; }
+        public DataTemplate RightTemplate { get; set; }
+
+        protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
+        {
+            Message message = ((Message)item);
+
+            if (message.Direction == MouthDirection.Left)
+            {
+                return LeftTemplate;
+            }
+            else
+            {
+                return RightTemplate;
+            }
         }
     }
 }

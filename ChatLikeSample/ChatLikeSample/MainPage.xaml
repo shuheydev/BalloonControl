@@ -5,24 +5,106 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:balloon="clr-namespace:BalloonControl;assembly=BalloonControl"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:local="clr-namespace:chatlikesample"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    <ContentPage.Resources>
+        <DataTemplate x:Key="leftTemplate">
+            <ViewCell>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="60" />
+                    </Grid.ColumnDefinitions>
+                    <Frame
+                        Grid.Column="0"
+                        Margin="5"
+                        Padding="0"
+                        CornerRadius="30"
+                        HeightRequest="50"
+                        HorizontalOptions="Center"
+                        IsClippedToBounds="True"
+                        VerticalOptions="Start"
+                        WidthRequest="50">
+                        <Image
+                            Aspect="AspectFit"
+                            HorizontalOptions="Center"
+                            Source="{Binding AvatarUrl}"
+                            VerticalOptions="Center"
+                            WidthRequest="50" />
+                    </Frame>
+                    <balloon:Balloon
+                        Grid.Column="1"
+                        Padding="15"
+                        BalloonColor="{Binding Path=BalloonColor}"
+                        CornerRadius="10"
+                        FontSize="15"
+                        HorizontalOptions="Start"
+                        MouthDirection="{Binding Path=Direction}"
+                        Text="{Binding Path=Text}"
+                        TextColor="{Binding Path=TextColor}" />
+                    <Label
+                        Grid.Column="2"
+                        Margin="5"
+                        Text="{Binding SendTime}" />
+                </Grid>
+            </ViewCell>
+        </DataTemplate>
+        <DataTemplate x:Key="rightTemplate">
+            <ViewCell>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="60" />
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        Grid.Column="0"
+                        Margin="5"
+                        Text="{Binding SendTime}" />
+                    <balloon:Balloon
+                        Grid.Column="1"
+                        Padding="15"
+                        BalloonColor="{Binding Path=BalloonColor}"
+                        CornerRadius="10"
+                        FontSize="10"
+                        HorizontalOptions="End"
+                        MouthDirection="{Binding Path=Direction}"
+                        Text="{Binding Path=Text}"
+                        TextColor="{Binding Path=TextColor}" />
+                    <Frame
+                        Grid.Column="2"
+                        Margin="5"
+                        Padding="0"
+                        CornerRadius="30"
+                        HeightRequest="50"
+                        HorizontalOptions="Center"
+                        IsClippedToBounds="True"
+                        VerticalOptions="Start"
+                        WidthRequest="50">
+                        <Image
+                            Aspect="AspectFit"
+                            HorizontalOptions="Center"
+                            Source="{Binding AvatarUrl}"
+                            VerticalOptions="Center"
+                            WidthRequest="50" />
+                    </Frame>
+                </Grid>
+            </ViewCell>
+        </DataTemplate>
+
+        <local:MyDataTemplateSelector
+            x:Key="myDataTemplateSelector"
+            LeftTemplate="{StaticResource leftTemplate}"
+            RightTemplate="{StaticResource rightTemplate}" />
+    </ContentPage.Resources>
     <StackLayout>
-        <ListView ItemsSource="{Binding Path=Messages}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <balloon:Balloon
-                            BalloonColor="{Binding Path=BalloonColor}"
-                            CornerRadius="40"
-                            MouthDirection="{Binding Path=Direction}"
-                            Text="{Binding Path=Text}"
-                            TextColor="{Binding Path=TextColor}" />
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <ListView
+            HasUnevenRows="True"
+            ItemTemplate="{StaticResource myDataTemplateSelector}"
+            ItemsSource="{Binding Path=Messages}" />
         <Button Clicked="Button_Clicked" Text="Send" />
         <Button Clicked="Button_Clicked_1" Text="Change Mouth Direction" />
     </StackLayout>
