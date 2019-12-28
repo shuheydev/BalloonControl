@@ -13,11 +13,11 @@
         <local:BalloonMouth x:Name="balloonMouth" />
         <!--  吹き出し本体  -->
         <Frame
-            Margin="20,10"
-            HorizontalOptions="FillAndExpand">
+            x:Name="balloonBody"
+            Margin="10,10"
+            HasShadow="False">
             <Label
                 x:Name="label"
-                Margin="30,15"
                 LineBreakMode="CharacterWrap"
                 VerticalOptions="FillAndExpand"
                 VerticalTextAlignment="Center" />
