@@ -55,6 +55,7 @@ namespace BalloonControl
                     {
                         #region From Left
 
+                        //プラットフォームに応じて
                         switch (Device.RuntimePlatform)
                         {
                             case Device.iOS:
