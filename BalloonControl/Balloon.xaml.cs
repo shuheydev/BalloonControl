@@ -120,19 +120,25 @@ namespace BalloonControl
             control.balloonBody.Padding = padding;
         }
 
-        public double FontSize { get; set; }
+        //https://github.com/arun6202/XamarinFormsStarterKit/blob/750e211cd4dae3595406aba8e9f53dee1787adff/XamarinFormsStarterKit/XamarinFormsStarterKit/Xamarin.FormsBook.Toolkit/CheckBox.xaml.cs
+        [Xamarin.Forms.TypeConverter(typeof(FontSizeConverter))]
+        public double FontSize
+        {
+            get { return (double)GetValue(FontSizeProperty); }
+            set { SetValue(FontSizeProperty, value); }
+        }
         public static readonly BindableProperty FontSizeProperty = BindableProperty.Create(
                 propertyName: nameof(FontSize),
                 returnType: typeof(double),
                 declaringType: typeof(Balloon),
-                defaultValue:(double)10,
+                defaultValue: Device.GetNamedSize(NamedSize.Default,typeof(Label)),
                 defaultBindingMode: BindingMode.TwoWay,
                 propertyChanged: FontSizePropertyChanged
             );
         private static void FontSizePropertyChanged(BindableObject bindable, object oldValue, object newValue)
         {
             var control = (Balloon)bindable;
-            var fontSize = (double)newValue;    
+            var fontSize = (double)newValue;
             control.label.FontSize = fontSize;
         }
 
