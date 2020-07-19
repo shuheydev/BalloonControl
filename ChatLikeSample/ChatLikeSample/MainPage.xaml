@@ -40,7 +40,7 @@
                         Padding="15"
                         BalloonColor="{Binding Path=BalloonColor}"
                         CornerRadius="10"
-                        FontSize="15"
+                        FontSize="Title"
                         HorizontalOptions="Start"
                         MouthDirection="{Binding Path=Direction}"
                         Text="{Binding Path=Text}"
