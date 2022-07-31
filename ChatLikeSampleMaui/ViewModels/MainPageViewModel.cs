@@ -1,22 +1,36 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using ChatLikeSampleMaui.Controls;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ChatLikeSampleMaui.ViewModels
 {
     public partial class MainPageViewModel : ObservableObject
     {
         [ObservableProperty]
-        string _message;
+        string _message = "Hello, World";
+
+        [ObservableProperty]
+        Color _balloonColor = Colors.Green;
+
+        [ObservableProperty]
+        MouthDirection _mouthDirection = MouthDirection.Left;
 
         [ICommand]
         void ChangeMessage()
         {
-            this.Message = "Oh bindable!!";
+            if (MouthDirection == MouthDirection.Right)
+            {
+                this.Message = "こんにちは世界";
+                this.BalloonColor = Colors.Green;
+                this.MouthDirection = MouthDirection.Left;
+            }
+            else if (MouthDirection == MouthDirection.Left)
+            {
+                this.Message = "さようなら日曜日…あああああああああああああああああああ";
+                this.BalloonColor = Colors.Orange;
+                this.MouthDirection = MouthDirection.Right;
+            }
+
         }
     }
 }

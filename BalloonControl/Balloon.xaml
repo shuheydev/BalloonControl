@@ -18,7 +18,7 @@
             HasShadow="False">
             <Label
                 x:Name="label"
-                LineBreakMode="CharacterWrap"
+                LineBreakMode="WordWrap"
                 VerticalOptions="FillAndExpand"
                 VerticalTextAlignment="Center" />
         </Frame>

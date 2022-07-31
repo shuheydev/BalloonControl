@@ -3,17 +3,29 @@
     x:Class="ChatLikeSampleMaui.Views.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:controls="clr-namespace:ChatLikeSampleMaui.Controls">
+    xmlns:controls="clr-namespace:ChatLikeSampleMaui.Controls"
+    xmlns:drawable="clr-namespace:ChatLikeSampleMaui.Controls.GraphicsTest">
 
+    <!--<ContentPage.Resources>
+        <drawable:TestDrawable x:Key="drawable" />
+    </ContentPage.Resources>-->
     <ScrollView>
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25"
             VerticalOptions="Center">
             <Button Command="{Binding ChangeMessageCommand}" Text="Change Message" />
-            <!--  ボタンクリックでテキストが変わる  -->
-            <controls:Balloon BalloonColor="LightBlue" Text="{Binding Message}" />
-
+            <!--  ボタンクリックでテキストが変わる,色も変わる  -->
+            <controls:Balloon
+                BalloonColor="{Binding BalloonColor}"
+                MouthDirection="{Binding MouthDirection}"
+                Text="{Binding Message, FallbackValue='Hello'}" />
+            <!--<GraphicsView
+                Drawable="{StaticResource drawable}"
+                HeightRequest="300"
+                WidthRequest="400" />-->
+            <!--<drawable:TestDraw DrawColor="{Binding BalloonColor}" />-->
+            <!--<drawable:TestGraphicsView DrawColor="{Binding BalloonColor}" HeightRequest="100" />-->
         </VerticalStackLayout>
     </ScrollView>
 
