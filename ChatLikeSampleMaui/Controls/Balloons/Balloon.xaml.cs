@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+
 namespace ChatLikeSampleMaui.Controls;
 
 public partial class Balloon : ContentView
@@ -15,7 +17,6 @@ public partial class Balloon : ContentView
             returnType: typeof(MouthDirection),
             declaringType: typeof(Balloon),
             defaultValue: MouthDirection.Right,
-            defaultBindingMode: BindingMode.TwoWay,
             propertyChanged: MouthDirectionPropertyChanged
         );
     private static void MouthDirectionPropertyChanged(BindableObject bindable, object oldValue, object newValue)
@@ -23,15 +24,16 @@ public partial class Balloon : ContentView
         var control = (Balloon)bindable;
 
         var direction = (MouthDirection)newValue;
-        if(direction== MouthDirection.Left)
+        if (direction == MouthDirection.Left)
         {
             control.balloonMouth.RotationY = 0;
         }
-        else if(direction== MouthDirection.Right)
+        else if (direction == MouthDirection.Right)
         {
             control.balloonMouth.RotationY = 180;
         }
     }
+
 
 
     #region Textプロパティ
@@ -54,12 +56,8 @@ public partial class Balloon : ContentView
     //プロパティの値が変更されたときに実行される
     private static void TextPropertyChanged(BindableObject bindable, object oldValue, object newValue)
     {
-        if (newValue is null)
-        {
-            return;
-        }
-
         var control = (Balloon)bindable;
+
     }
     #endregion
 

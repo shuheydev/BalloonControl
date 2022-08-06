@@ -6,17 +6,18 @@
     xmlns:controls="clr-namespace:ChatLikeSampleMaui.Controls"
     x:Name="this">
 
-    <Grid>
+
+    <Grid BindingContext="{x:Reference this}">
         <controls:BalloonMouthGraphicsView
             x:Name="balloonMouth"
             BalloonMouthColor="{Binding BalloonColor}"
-            HeightRequest="100" />
+            HeightRequest="100"
+            MouthDirection="{Binding MouthDirection}" />
 
         <Frame
             x:Name="balloonBody"
             Margin="20,10"
             BackgroundColor="{Binding BalloonColor, FallbackValue='Red'}"
-            BindingContext="{x:Reference this}"
             BorderColor="{Binding BalloonColor}"
             HasShadow="False">
             <Label

@@ -4,29 +4,67 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:ChatLikeSampleMaui.Controls"
-    xmlns:drawable="clr-namespace:ChatLikeSampleMaui.Controls.GraphicsTest">
+    xmlns:models="clr-namespace:ChatLikeSampleMaui.Models">
 
-    <!--<ContentPage.Resources>
-        <drawable:TestDrawable x:Key="drawable" />
-    </ContentPage.Resources>-->
-    <ScrollView>
+    <!--<ScrollView>
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25"
             VerticalOptions="Center">
             <Button Command="{Binding ChangeMessageCommand}" Text="Change Message" />
-            <!--  ボタンクリックでテキストが変わる,色も変わる  -->
+
+    -->
+    <!--  ボタンクリックでテキストが変わる,色も変わる  -->
+    <!--
+
             <controls:Balloon
                 BalloonColor="{Binding BalloonColor}"
                 MouthDirection="{Binding MouthDirection}"
                 Text="{Binding Message, FallbackValue='Hello'}" />
-            <!--<GraphicsView
-                Drawable="{StaticResource drawable}"
-                HeightRequest="300"
-                WidthRequest="400" />-->
-            <!--<drawable:TestDraw DrawColor="{Binding BalloonColor}" />-->
-            <!--<drawable:TestGraphicsView DrawColor="{Binding BalloonColor}" HeightRequest="100" />-->
-        </VerticalStackLayout>
-    </ScrollView>
 
+        </VerticalStackLayout>
+    </ScrollView>-->
+    <Grid RowDefinitions="auto,auto,auto,auto">
+        <CollectionView
+            Grid.Row="0"
+            ItemsSource="{Binding Talks}"
+            ItemsUpdatingScrollMode="KeepLastItemInView">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Talk">
+                    <HorizontalStackLayout>
+                        <controls:Balloon
+                            BalloonColor="{Binding BalloonColor}"
+                            MouthDirection="{Binding MouthDirection}"
+                            Text="{Binding Message, FallbackValue='Hello'}" />
+                        <VerticalStackLayout BackgroundColor="{Binding BalloonColor}">
+                            <Label Text="{Binding Message}" />
+                            <Label Text="{Binding MouthDirection}" />
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button
+            Grid.Row="1"
+            Command="{Binding AddItemCommand}"
+            Text="Add" />
+        <Button
+            Grid.Row="2"
+            Command="{Binding ChangeDirectionCommand}"
+            Text="Change Direction" />
+
+        <VerticalStackLayout
+            Grid.Row="3"
+            Padding="30,0"
+            Spacing="25"
+            VerticalOptions="Center">
+            <Button Command="{Binding ChangeMessageCommand}" Text="Change Message" />
+            <controls:Balloon
+                BalloonColor="{Binding BalloonColorSingle}"
+                MouthDirection="{Binding MouthDirectionSingle}"
+                Text="{Binding MessageSingle, FallbackValue='Hello'}" />
+
+        </VerticalStackLayout>
+    </Grid>
 </ContentPage>

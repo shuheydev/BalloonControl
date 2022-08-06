@@ -8,6 +8,31 @@ namespace ChatLikeSampleMaui.Controls
 {
     internal class BalloonMouthGraphicsView : GraphicsView
     {
+        /// <summary>
+        /// 吹き出しの口の向き
+        /// </summary>
+        public MouthDirection MouthDirection
+        {
+            get => (MouthDirection)GetValue(MouthDirectionProperty);
+            set => SetValue(MouthDirectionProperty, value);
+        }
+        public static readonly BindableProperty MouthDirectionProperty = BindableProperty.Create(
+                propertyName: nameof(MouthDirection),
+                returnType: typeof(MouthDirection),
+                declaringType: typeof(BalloonMouthGraphicsView),
+                defaultValue: MouthDirection.Right,
+                propertyChanged: MouthDirectionPropertyChanged
+            );
+        private static void MouthDirectionPropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            var control = (BalloonMouthGraphicsView)bindable;
+
+            var direction = (MouthDirection)newValue;
+            control.BalloonMouthDrawable.MouthDirection = direction;
+            control.Invalidate();
+        }
+
+
         #region BalloonMouthColorプロパティ
         public Color BalloonMouthColor
         {
@@ -31,7 +56,7 @@ namespace ChatLikeSampleMaui.Controls
             var control = (BalloonMouthGraphicsView)bindable;
             var color = (Color)newValue;
             control.BalloonMouthDrawable.MouthColor = color;
-            control.Invalidate();
+            //control.Invalidate();
         }
         #endregion
 
