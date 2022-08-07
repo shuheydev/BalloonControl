@@ -17,10 +17,10 @@ namespace ChatLikeSampleMaui.ViewModels
         [ObservableProperty]
         MouthDirection _mouthDirectionSingle = MouthDirection.Left;
 
+        [ObservableProperty]
+        ObservableCollection<Talk> _talks;
 
-        public ObservableCollection<Talk> Talks { get; set; } = new ObservableCollection<Talk>();
-
-        [ICommand]
+        [RelayCommand]
         void ChangeMessage()
         {
             if (MouthDirectionSingle == MouthDirection.Right)
@@ -38,16 +38,16 @@ namespace ChatLikeSampleMaui.ViewModels
 
         }
 
-        [ICommand]
+        [RelayCommand]
         void AddItem()
         {
-            this.Talks.Add(new Talk { Message = "hello6", MouthDirection = MouthDirection.Right, BalloonColor = Colors.Orange });
+            this._talks.Add(new Talk { Message = "hello6", MouthDirection = MouthDirection.Right, BalloonColor = Colors.Orange });
         }
 
-        [ICommand]
+        [RelayCommand]
         void ChangeDirection()
         {
-            var first = this.Talks.First();
+            var first = this._talks.First();
 
             if (first.MouthDirection == MouthDirection.Right)
             {
@@ -61,6 +61,8 @@ namespace ChatLikeSampleMaui.ViewModels
 
         public MainPageViewModel()
         {
+            this.Talks = new ObservableCollection<Talk>();
+
             this.Talks.Add(new Talk { Message = "hello1", MouthDirection = MouthDirection.Right, BalloonColor = Colors.Red });
             this.Talks.Add(new Talk { Message = "hello2", MouthDirection = MouthDirection.Right, BalloonColor = Colors.Blue });
             this.Talks.Add(new Talk { Message = "hello3", MouthDirection = MouthDirection.Right, BalloonColor = Colors.Red });
